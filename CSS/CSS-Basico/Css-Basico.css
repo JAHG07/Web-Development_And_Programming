@@ -1,3 +1,7 @@
+:root {
+    --bg-url: url("https://e1.pxfuel.com/desktop-wallpaper/145/97/desktop-wallpaper-andromeda-galaxy-ultrawide-by-daily-ultrawide.jpg");
+}
+
 body {
     background-color: #333;
     padding: 0;
@@ -23,20 +27,50 @@ header .navigation {
     color: #fff;
 }
 
-header>.galaxy {
+header .galaxy {
     width: 100%;
     height: 500px;
-    background: url("https://e1.pxfuel.com/desktop-wallpaper/145/97/desktop-wallpaper-andromeda-galaxy-ultrawide-by-daily-ultrawide.jpg") no-repeat;
-    background-size: cover;
-    background-position: center;
     color: #ddd;
     position: relative;
 }
 
-header>.galaxy article {
+header .galaxy {
+    background: var(--bg-url) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .galaxy article {
     position: absolute;
     bottom: 50px;
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+}
+
+header .right {
+    position: absolute;
+    width: 50px;
+    right: 0;
+    top: 30%;
+    transform: translate(0, 50%);
+    z-index: 10;
+}
+
+header .left {
+    position: absolute;
+    width: 50px;
+    left: 0;
+    top: 30%;
+    transform: translate(0, 50%);
+    z-index: 10;
+}
+
+header .carousel-nav:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+header .carousel-nav:active~.galaxy {
+    --bg-url: url("");
 }
