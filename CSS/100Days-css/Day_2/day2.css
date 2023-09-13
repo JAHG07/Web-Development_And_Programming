@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #3faf82;
+    color: #333;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    height: 52px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar {
+    position: absolute;
+    width: 80px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.bar:nth-child(1) {
+    transform: translateY(-22px);
+}
+
+.bar:nth-child(3) {
+    transform: translateY(22px);
+}
+
+.menu.close .bar:nth-child(1) {
+    animation: first-bar-close 1s forwards;
+}
+
+.menu.open .bar:nth-child(1) {
+    animation: first-bar-open 1s forwards;
+}
+
+.menu.close .bar:nth-child(2) {
+    animation: second-bar-close 1s forwards;
+}
+
+.menu.open .bar:nth-child(2) {
+    animation: second-bar-open 1s forwards;
+}
+
+.menu.close .bar:nth-child(3) {
+    animation: third-bar-close 1s forwards;
+}
+
+.menu.open .bar:nth-child(3) {
+    animation: third-bar-open 1s forwards;
+}
+
+@keyframes first-bar-close {
+    0% {
+        transform: translateY(-22px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes third-bar-close {
+    0% {
+        transform: translateY(22px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes second-bar-close {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes first-bar-open {
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-22px);
+    }
+}
+
+@keyframes second-bar-open {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
+@keyframes third-bar-open {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: translateY(22px)
+    }
+}
