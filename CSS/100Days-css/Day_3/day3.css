@@ -32,6 +32,8 @@
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  animation: fade 4s cubic-bezier(0.4, 0.3, 0.5, 0.3) infinite;
+  opacity: 0;
 }
 
 .ground {
@@ -64,18 +66,20 @@
   right: 0;
   margin: auto;
   clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+  animation: piramid-shadow 4s cubic-bezier(0.3, 0, 0.3, 1) infinite;
 }
 
 .piramid-l {
   position: absolute;
   width: 58px;
   height: 57px;
-  background-color: #d3d3d3;
+  background-color: #cecccc;
   top: 67px;
   left: 58px;
   right: 0;
   margin: auto;
   clip-path: polygon(30% 100%, 100% 100%, 0% 0%);
+  animation: piramid-shadow-r 4s cubic-bezier(0.3, 0, 0.3, 1) infinite;
 }
 
 .shadow {
@@ -88,6 +92,24 @@
   background-color: rgba(0, 0, 0, 0.2);
   clip-path: polygon(122px 0, 238px 0, 100% 5px);
   animation: shadow-move 4s cubic-bezier(0.3, 0, 0.3, 1) infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes sun-dowm {
@@ -132,5 +154,37 @@
 
   100% {
     clip-path: polygon(122px 0, 238px 0, 0 5px);
+  }
+}
+
+@keyframes piramid-shadow {
+  0% {
+    background-color: #F4F4F4;
+  }
+
+  30% {
+    background-color: #F4F4F4;
+  }
+
+  100% {
+    background-color: #cecccc;
+  }
+}
+
+@keyframes piramid-shadow-r {
+  0% {
+    background-color: #cecccc;
+  }
+
+  25% {
+    background-color: #cecccc;
+  }
+
+  70% {
+    background-color: #F4F4F4;
+  }
+
+  100% {
+    background-color: #F4F4F4;
   }
 }
