@@ -1,12 +1,13 @@
 .ig-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 10px;
+  width: 470px;
 }
 
 /*Header*/
 .ig-card-header {
-  height: 250px;
-  width: 470px;
   color: #eee;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
@@ -57,3 +58,12 @@
 .ig-card-info__user .description {
   font-size: 0.8rem;
 }
+
+/*Main*/
+.publication-img {
+  width: 100%;
+  height: 550px;
+  background: url('https://c4.wallpaperflare.com/wallpaper/946/632/921/espacio-estrellas-naturaleza-planetas-wallpaper-preview.jpg') no-repeat;
+}
+
+.publication-img img {}
