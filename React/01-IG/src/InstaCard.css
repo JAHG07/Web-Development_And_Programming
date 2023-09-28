@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  width: 470px;
+  width: 468px;
 }
 
 /*Header*/
@@ -32,9 +32,10 @@
   height: 42px;
   width: 42px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
-.ig-card-info__img .update {
+.update {
   background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
@@ -61,9 +62,28 @@
 
 /*Main*/
 .publication-img {
-  width: 100%;
-  height: 550px;
-  background: url('https://c4.wallpaperflare.com/wallpaper/946/632/921/espacio-estrellas-naturaleza-planetas-wallpaper-preview.jpg') no-repeat;
+  width: 468px;
+  height: 585px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  box-sizing: content-box;
+  display: grid;
+  place-content: center;
 }
 
-.publication-img img {}
+.publication-img-im {
+  width: 320px;
+  height: 585px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.publication-img-im img {
+  height: 100%;
+}
+
+.publication-footer {
+  color: #fff;
+}
