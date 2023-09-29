@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-const CAT_ENDPOINT_URL = 'https://cataas.com/'
+const CAT_PREFIX = 'https://cataas.com/'
 
 export const useCatImage = ({ fact }) => {
   const [imageUrl, setImageURL] = useState('')
@@ -15,5 +15,5 @@ export const useCatImage = ({ fact }) => {
         setImageURL(url)
       })
   }, [fact])
-  return { imageUrl: `${CAT_ENDPOINT_URL}${imageUrl}` }
+  return { imageUrl: `${CAT_PREFIX}${imageUrl}` }
 }
