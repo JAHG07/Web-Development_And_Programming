@@ -1,34 +1,15 @@
 import { Movies } from './components/Movies'
 import './App.css'
 import { useMovies } from './hooks/useMovies'
-import { useEffect, useState } from 'react'
-
-const useQuery = () => {
-  const [query, setQuery] = useState('')
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    if (query === '') {
-      setError('No se puede buscar vacio')
-      return
-    }
-    if (query === '') {
-      setError('')
-      return
-    }
-    if (query.length <= 1) {
-      setError('No se puede buascar solo con una letra')
-      return
-    }
-    setError('')
-  }, [query])
-
-  return { query, setQuery, error }
-}
+import { useQuery } from './hooks/useQuery'
+import { useRef, useState, useCallback } from 'react'
+import debounce from "just-debounce-it"
 
 const App = () => {
-  const { movies } = useMovies()
+  const [sort, setSort] = useState(false)
   const { query, setQuery, error } = useQuery()
+  const { movies, getMovies, loading } = useMovies({ query, sort })
+  const counter = useRef(0)
   // const inputRef = useRef()
 
   // const handleSubmit = (event) => {
@@ -36,19 +17,30 @@ const App = () => {
   //   const value = inputRef.current.value
   //   alert(value)
   // }
+  counter.current++
+  // console.log(counter)
+  // console.log('render')
 
-  console.log('render')
+  const debancedGetMovies = useCallback(debounce((query) => {
+    getMovies({ query })
+  }, 300)
+  , [getMovies])
 
   const handleSubmit = (event) => {
     event.preventDefault()
     // const { field } = Object.fromEntries(new window.FormData(event.target))
-    console.log(query)
+    getMovies({ query })
   }
 
   const handleChange = (event) => {
     const newQuery = event.target.value
     if (newQuery.startsWith(' ')) return
     setQuery(newQuery)
+    debancedGetMovies(newQuery)
+  }
+
+  const handleSort = () => {
+    setSort(!sort)
   }
 
   return (
@@ -58,11 +50,14 @@ const App = () => {
         <form action='' onSubmit={handleSubmit}>
           <input onChange={handleChange} value={query} name='query' type='text' placeholder='Advengers, Matrix, Dead Pool' />
           <button type='submit'>Buscar</button>
+          <input type='checkbox' onChange={handleSort} checked={sort} />
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
       <main>
-        <Movies movies={movies} />
+        {
+          loading ? <p>Loading ...</p> : <Movies movies={movies} />
+        }
       </main>
     </div>
   )
