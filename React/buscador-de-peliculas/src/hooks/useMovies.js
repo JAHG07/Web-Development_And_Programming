@@ -1,5 +1,5 @@
 import responseMovies from '../Mocks/ok-res.json'
-import withoutResults from '../Mocks/no-res.json'
+// import withoutResults from '../Mocks/no-res.json'
 
 export const useMovies = () => {
   const movies = responseMovies.Search
