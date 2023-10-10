@@ -3,12 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: #222;
+#root {
   color: #fff;
   display: grid;
   place-content: center;
-}
-#root {
   width: 100vw;
+  padding-top: 50px;
 }
+body{
+  background-color: #222;
+}
+
