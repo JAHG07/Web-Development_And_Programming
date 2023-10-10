@@ -3,7 +3,7 @@ import './App.css'
 import { useMovies } from './hooks/useMovies'
 import { useQuery } from './hooks/useQuery'
 import { useRef, useState, useCallback } from 'react'
-import debounce from "just-debounce-it"
+import debounce from 'just-debounce-it'
 
 const App = () => {
   const [sort, setSort] = useState(false)
