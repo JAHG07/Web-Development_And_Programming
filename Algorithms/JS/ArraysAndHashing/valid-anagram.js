@@ -1,5 +1,5 @@
 let s = "anagram"
-let t = "nagaraa"
+let t = "nagaram"
 
 var isAnagram = function (s, t) {
   if (s.length !== t.length) return false
@@ -10,11 +10,8 @@ var isAnagram = function (s, t) {
     countS.set(s[i], 1 + countS.get(s[i]) || 1)
     countT.set(t[i], 1 + countT.get(t[i]) || 1)
   }
-  console.log(countS)
-  console.log(countT)
-  for (let c in countS) {
-    console.log(c)
-    if (countS[c] !== countT[c]) {
+  for (const [key, val] of countS) {
+    if (countS.get(key) !== countT.get(key)) {
       return false
     }
   }
